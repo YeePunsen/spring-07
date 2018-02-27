@@ -16,11 +16,12 @@ public class studentDao {
 //	String password="123456789";
 	
 	public List<Student> getStudents(){
-		return jdbcUntil.executeQuery("select id,name,b_id,gerden from student", new RowMap<Student>() {
+		return jdbcUntil.executeQuery("select id,name,b_id from student", Student.class, null);
+		
+		/*return jdbcUntil.executeQuery("select id,name,b_id,gerden from student", (ResultSet rs)-> {
 
-			@Override
-			public Student rowMapping(ResultSet rs) {
-				// TODO Auto-generated method stub
+			
+			
 				Student student = new Student();
 				try {
 					student.setId(rs.getInt("id"));
@@ -33,9 +34,7 @@ public class studentDao {
 				}
 				
 				return student;
-			}
-			
-		}, null);
+			}, null);*/
 //		Connection con=jdbcUntil.getConnection();
 //		PreparedStatement pstmt=null;
 //		ResultSet rs=null;
